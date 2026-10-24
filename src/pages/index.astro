@@ -1,0 +1,62 @@
+---
+import ActionBar from "../components/ActionBar.astro";
+import Gallery from "../components/Gallery.astro";
+import Hero from "../components/Hero.astro";
+import Prices from "../components/Prices.astro";
+import Reviews from "../components/Reviews.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import Visit from "../components/Visit.astro";
+import Base from "../layouts/Base.astro";
+import { business, copy } from "../lib/site";
+
+const { address, geo } = business;
+
+const title = `${business.nameOnGoogle} | ${copy.headline}`;
+const description = `Afro Caribbean hair salon at ${address.street}, ${address.locality} ${address.postcode}. Braids, cornrows, twists, silk press, wigs and children's braids. Book on WhatsApp: ${business.phoneDisplay}.`;
+
+// No aggregateRating: Google ignores ratings a business publishes about itself.
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": business.schemaType,
+  name: business.nameOnGoogle,
+  alternateName: business.name,
+  url: Astro.site?.href,
+  telephone: business.phone,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: address.street,
+    addressLocality: address.locality,
+    addressRegion: address.region,
+    postalCode: address.postcode,
+    addressCountry: address.country,
+  },
+  geo: { "@type": "GeoCoordinates", latitude: geo.lat, longitude: geo.lng },
+  hasMap: business.googleMapsUrl,
+  openingHoursSpecification: business.hours.flatMap((d) =>
+    "closed" in d
+      ? []
+      : [
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: `https://schema.org/${d.day}`,
+            opens: d.open,
+            closes: d.close,
+          },
+        ],
+  ),
+};
+---
+
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <SiteHeader />
+  <main id="main">
+    <Hero />
+    <Prices />
+    <Gallery />
+    <Reviews />
+    <Visit />
+  </main>
+  <SiteFooter />
+  <ActionBar />
+</Base>

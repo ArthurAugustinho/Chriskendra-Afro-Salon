@@ -1,0 +1,28 @@
+---
+import SiteFooter from "../components/SiteFooter.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import Base from "../layouts/Base.astro";
+import { business } from "../lib/site";
+---
+
+<Base title={`Page not found | ${business.nameOnGoogle}`} description="This page doesn't exist.">
+  <SiteHeader />
+  <main id="main" class="section">
+    <div class="wrap not-found">
+      <h1>Sorry, this page doesn't exist.</h1>
+      <p>
+        <a href="/">Go to the home page</a> for prices, styles and opening hours.
+      </p>
+    </div>
+  </main>
+  <SiteFooter />
+</Base>
+
+<style>
+  .not-found {
+    display: grid;
+    gap: 16px;
+    min-height: 40vh;
+    align-content: center;
+  }
+</style>

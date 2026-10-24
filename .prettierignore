@@ -1,0 +1,10 @@
+dist/
+.astro/
+node_modules/
+package-lock.json
+briefing/
+test-results/
+playwright-report/
+reports/
+docs/screenshots/
+src/content/site.json

@@ -1,0 +1,356 @@
+{
+  "_about": "Single source of truth for the ChrisKendra site. Facts come from the owner (flyer, printed price list, photos) and the public Google listing, checked on 24/10/2026. Do not add facts that are not here. 'suggestedCopy' can be reworded; facts cannot.",
+  "business": {
+    "name": "ChrisKendra Afro Caribbean Salon",
+    "nameOnGoogle": "Chriskendra Afro Salon",
+    "wordmark": "ChrisKendra",
+    "descriptor": "Afro Caribbean Salon",
+    "schemaType": "HairSalon",
+    "phone": "+447534857950",
+    "phoneDisplay": "07534 857950",
+    "whatsapp": "447534857950",
+    "address": {
+      "street": "195 London Road",
+      "locality": "Croydon",
+      "region": "London",
+      "postcode": "CR0 2DR",
+      "country": "GB"
+    },
+    "geo": {
+      "lat": 51.3828841,
+      "lng": -0.1075167
+    },
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Chriskendra%20Afro%20Salon%2C%20195%20London%20Rd%2C%20Croydon&query_place_id=ChIJnZuA0UcBdkgRvBIy16ctqQQ",
+    "googleRating": {
+      "value": 5.0,
+      "count": 7,
+      "checkedOn": "2026-10-24"
+    },
+    "hours": [
+      {
+        "day": "Monday",
+        "open": "10:00",
+        "close": "18:00"
+      },
+      {
+        "day": "Tuesday",
+        "open": "10:00",
+        "close": "18:00"
+      },
+      {
+        "day": "Wednesday",
+        "open": "10:00",
+        "close": "18:00"
+      },
+      {
+        "day": "Thursday",
+        "open": "10:00",
+        "close": "18:00"
+      },
+      {
+        "day": "Friday",
+        "open": "09:30",
+        "close": "21:00"
+      },
+      {
+        "day": "Saturday",
+        "open": "09:30",
+        "close": "21:00"
+      },
+      {
+        "day": "Sunday",
+        "closed": true
+      }
+    ],
+    "hoursNote": "From the Google listing. The owner's flyer says Mon-Sat 09:00-18:00. Pending confirmation; show the Google hours in the draft.",
+    "siteLanguage": "en-GB"
+  },
+  "suggestedCopy": {
+    "headline": "Braids, twists and wigs in Croydon",
+    "intro": "Affordable Afro Caribbean hairdressing on London Road: braids, silk press, wigs, treatments and children's hair. Message us on WhatsApp to book.",
+    "bookingMessage": "Hi, I'd like to book an appointment at ChrisKendra.",
+    "priceQuestionMessage": "Hi, could I get a price for {service}?",
+    "photoQuoteMessage": "Hi, could I get a price for this style? I'll send a photo.",
+    "slogan": "A try will convince you."
+  },
+  "offer": {
+    "title": "10% off your first visit",
+    "text": "New to the salon? Tell us when you book and we'll take 10% off.",
+    "source": "owner's flyer"
+  },
+  "priceNote": "Prices can change with hair length and thickness. Send a photo of the style you want on WhatsApp and we'll confirm the price before you come in.",
+  "priceGroups": [
+    {
+      "title": "Braids",
+      "items": [
+        {
+          "name": "Knotless braids (small)",
+          "price": 120
+        },
+        {
+          "name": "Knotless braids (medium/large)",
+          "price": 100
+        },
+        {
+          "name": "Box braids (small)",
+          "price": 95
+        },
+        {
+          "name": "Box braids (medium/large)",
+          "price": 80
+        },
+        {
+          "name": "Feed-in braids (small)",
+          "price": null
+        },
+        {
+          "name": "2 feed-in braids",
+          "price": null
+        },
+        {
+          "name": "Single plaits (own hair)",
+          "price": 40
+        }
+      ]
+    },
+    {
+      "title": "Cornrows and twists",
+      "items": [
+        {
+          "name": "Cornrows (8 plaits or less)",
+          "price": 30
+        },
+        {
+          "name": "Cornrows (more than 8 plaits)",
+          "price": 45
+        },
+        {
+          "name": "Gel twists (half head)",
+          "price": 45
+        },
+        {
+          "name": "Gel twists (full head)",
+          "price": null
+        },
+        {
+          "name": "Loc retwist",
+          "price": null
+        }
+      ]
+    },
+    {
+      "title": "Wigs, weaves and ponytails",
+      "items": [
+        {
+          "name": "Lace wig installation",
+          "price": 30
+        },
+        {
+          "name": "Wig cornrows (standard)",
+          "price": 20
+        },
+        {
+          "name": "Wig cornrows (small)",
+          "price": 30
+        },
+        {
+          "name": "Wig cornrow removal",
+          "price": 10
+        },
+        {
+          "name": "Full head weave with leave-out",
+          "price": 80
+        },
+        {
+          "name": "Weave removal",
+          "price": 15
+        },
+        {
+          "name": "Set of clip-ins",
+          "price": 15
+        },
+        {
+          "name": "Sleek ponytail",
+          "price": 55
+        }
+      ]
+    },
+    {
+      "title": "Wash, silk press and cut",
+      "items": [
+        {
+          "name": "Wash and blow-dry",
+          "price": 20
+        },
+        {
+          "name": "Wash, blow-dry and trim",
+          "price": 30
+        },
+        {
+          "name": "Wash and finish with cut",
+          "price": 40
+        },
+        {
+          "name": "Wash and silk press",
+          "price": 50
+        },
+        {
+          "name": "Silk press and curl",
+          "price": 50
+        },
+        {
+          "name": "Silk press and trim",
+          "price": 60
+        }
+      ]
+    },
+    {
+      "title": "Relaxer, colour and treatments",
+      "items": [
+        {
+          "name": "Virgin relaxer",
+          "price": 50
+        },
+        {
+          "name": "Virgin relaxer and trim",
+          "price": 60
+        },
+        {
+          "name": "Full head colour",
+          "price": 150
+        },
+        {
+          "name": "Hot oil treatment",
+          "price": 30
+        },
+        {
+          "name": "Moisture treatment",
+          "price": 25
+        },
+        {
+          "name": "Protein treatment",
+          "price": 30
+        },
+        {
+          "name": "Olaplex treatment",
+          "price": 25
+        }
+      ]
+    },
+    {
+      "title": "Children's braids",
+      "items": [
+        {
+          "name": "Box braids",
+          "price": 50
+        },
+        {
+          "name": "Knotless braids",
+          "price": 60
+        },
+        {
+          "name": "Feed-in braids",
+          "price": null
+        },
+        {
+          "name": "2 feed-in braids",
+          "price": 35
+        }
+      ]
+    }
+  ],
+  "priceSourceNotes": [
+    "Prices from the salon's printed price list (photos in reference/). 'price': null means unreadable or not listed: show 'Ask for a price' linking to WhatsApp.",
+    "Lace wig installation (£30) is only on the flyer, not on the printed list. Pending confirmation.",
+    "Printed list also reads 'Gel twists £15' on page 2, which conflicts with 'Gel twists (half head) £45' on page 1; full head shown as 'Ask for a price'."
+  ],
+  "photos": [
+    {
+      "file": "photos/cornrow-updo.jpg",
+      "alt": "Cornrow updo with a braided bun",
+      "caption": "Cornrow updo with a braided bun",
+      "rights": "to confirm with the owner"
+    },
+    {
+      "file": "photos/boho-knotless-braids.jpg",
+      "alt": "Long boho knotless braids with curly ends",
+      "caption": "Long boho knotless braids with curly ends",
+      "rights": "to confirm with the owner"
+    },
+    {
+      "file": "photos/straight-back-cornrows.jpg",
+      "alt": "Neat straight-back cornrows",
+      "caption": "Neat straight-back cornrows",
+      "rights": "to confirm with the owner"
+    },
+    {
+      "file": "photos/two-strand-twists-in-salon.jpg",
+      "alt": "Client in the salon chair with two-strand twists",
+      "caption": "Two-strand twists",
+      "rights": "confirmed: taken in the salon"
+    },
+    {
+      "file": "photos/triangle-part-knotless-braids.jpg",
+      "alt": "Triangle-part knotless braids in a high bun",
+      "caption": "Triangle-part knotless braids",
+      "rights": "to confirm with the owner"
+    },
+    {
+      "file": "photos/cornrows-with-ombre-braids.jpg",
+      "alt": "Cornrows into long ombré braids",
+      "caption": "Cornrows with ombré braids",
+      "rights": "to confirm with the owner"
+    },
+    {
+      "file": "photos/mens-twists.jpg",
+      "alt": "Men's twists with triangle parts",
+      "caption": "Men's twists",
+      "rights": "to confirm with the owner"
+    },
+    {
+      "file": "photos/mens-box-part-twists.jpg",
+      "alt": "Men's box-part twists",
+      "caption": "Box-part twists",
+      "rights": "to confirm with the owner"
+    }
+  ],
+  "photosNote": "Cropped from WhatsApp screenshots, EXIF removed. Two images with other brands' names were excluded on purpose. Only two-strand-twists-in-salon is clearly from the salon; the owner must confirm the rest before launch.",
+  "reviewThemes": [
+    {
+      "title": "Patient and caring",
+      "text": "Clients describe an unhurried appointment with someone who takes her time and gets it right."
+    },
+    {
+      "title": "There when you need her",
+      "text": "Regulars say she's always helpful and available whenever they need their hair done."
+    },
+    {
+      "title": "Results that never disappoint",
+      "text": "Clients come back visit after visit because the result is great every time."
+    }
+  ],
+  "reviewThemesNote": "Paraphrased from the public Google reviews. Do not quote, do not invent names, do not add aggregateRating to JSON-LD.",
+  "brand": {
+    "logo": "brand/logo-mark-redrawn.svg (redrawn from a low-resolution flyer; the original file is pending)",
+    "logoLockup": "Gold head-and-hair silhouette, 'ChrisKendra' in white serif, 'AFRO CARIBBEAN SALON' in gold capitals, on chocolate brown",
+    "colours": {
+      "chocolate": "#3B2117",
+      "gold": "#F2C230",
+      "magenta": "#9E1677",
+      "pink": "#FBE6EF"
+    },
+    "coloursNote": "Sampled from the logo and flyer. Starting point, not a fixed palette; check WCAG AA."
+  },
+  "pending": [
+    "Proposal not accepted yet (Playbook phase 0)",
+    "Opening hours: Google vs flyer",
+    "Printed list vs flyer prices; is the printed list current?",
+    "Unreadable prices: feed-in braids (small), 2 feed-in braids, gel twists (full head), children's feed-in braids",
+    "Is braiding hair included in braid prices?",
+    "Lace wig installation still offered?",
+    "Rights to the photos and consent of clients shown",
+    "Original logo file (PNG/SVG/PDF)",
+    "Official name: 'Chriskendra Afro Salon' (Google) or 'ChrisKendra Afro Caribbean Salon' (logo)",
+    "Owner's name and an 'about' text, if she wants one"
+  ]
+}

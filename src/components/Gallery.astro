@@ -1,0 +1,96 @@
+---
+import { Picture } from "astro:assets";
+import { photoQuoteUrl, photos, ui } from "../lib/site";
+import Icon from "./Icon.astro";
+---
+
+<section id="styles" class="section gallery on-dark" aria-labelledby="styles-title">
+  <div class="wrap">
+    <h2 id="styles-title">{ui.stylesTitle}</h2>
+    <div class="parting-grid gallery__grid">
+      {photos.map((photo) => (
+        <figure class="shot">
+          <div class="shot__frame">
+            <Picture
+              src={photo.src}
+              alt={photo.alt}
+              formats={["avif", "webp"]}
+              widths={[280, 360, 480, 640, 800]}
+              sizes="(min-width: 1224px) 385px, (min-width: 600px) calc(33vw - 18px), calc(50vw - 18px)"
+            />
+          </div>
+          <figcaption>{photo.caption}</figcaption>
+        </figure>
+      ))}
+      <div class="quote">
+        <h3>{ui.photoQuoteTitle}</h3>
+        <p>{ui.photoQuoteText}</p>
+        <a class="btn btn--cocoa" href={photoQuoteUrl}>
+          <Icon name="whatsapp" />
+          {ui.photoQuoteButton}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .gallery h2 {
+    margin-bottom: 28px;
+  }
+
+  .gallery__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .shot {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .shot__frame {
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+  }
+
+  figcaption {
+    padding: 10px 12px 14px;
+    font-size: var(--text-sm);
+    line-height: 1.35;
+    color: var(--blush);
+  }
+
+  /* The ninth square of the grid: send a photo of the style you want. */
+  .quote {
+    grid-column: 1 / -1;
+    display: grid;
+    align-content: center;
+    justify-items: start;
+    gap: 12px;
+    padding: 24px 20px;
+    background: var(--gold);
+    color: var(--cocoa);
+  }
+
+  .quote h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.15;
+  }
+
+  .quote :focus-visible {
+    outline-color: var(--cocoa);
+  }
+
+  @media (min-width: 600px) {
+    .gallery__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .quote {
+      grid-column: auto;
+      padding: 28px;
+    }
+  }
+</style>

@@ -1,0 +1,115 @@
+---
+import LogoMark from "../assets/brand/logo-mark.svg";
+import { bookingUrl, business, ui } from "../lib/site";
+import Icon from "./Icon.astro";
+---
+
+<header class="site-header on-dark">
+  <div class="wrap site-header__inner">
+    <p class="lockup">
+      <LogoMark class="lockup__mark" aria-hidden="true" />
+      <span class="lockup__word" translate="no">
+        {business.wordmark}
+      </span>
+      <span class="lockup__desc">{business.descriptor}</span>
+    </p>
+    <nav class="site-nav" aria-label="Sections">
+      <a href="#prices">Prices</a>
+      <a href="#styles">Styles</a>
+      <a href="#visit">Visit</a>
+      <a class="btn btn--gold site-nav__book" href={bookingUrl}>
+        <Icon name="whatsapp" />
+        {ui.bookButton}
+      </a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px 24px;
+    padding-block: 16px 0;
+  }
+
+  .lockup {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    column-gap: 10px;
+    align-items: end;
+  }
+
+  .lockup__mark {
+    grid-row: 1 / 3;
+    width: 58px;
+    height: auto;
+  }
+
+  .lockup__word {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    line-height: 1;
+    color: var(--paper);
+  }
+
+  .lockup__desc {
+    align-self: start;
+    padding-top: 4px;
+    font-family: var(--font-display);
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: 4px 20px;
+    margin-left: -10px;
+  }
+
+  .site-nav a:not(.btn) {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding-inline: 10px;
+    font-weight: 600;
+  }
+
+  .site-nav__book {
+    display: none;
+  }
+
+  @media (min-width: 900px) {
+    .site-header__inner {
+      flex-wrap: nowrap;
+      padding-block: 24px;
+    }
+
+    .lockup__mark {
+      width: 68px;
+    }
+
+    .lockup__word {
+      font-size: 2.125rem;
+    }
+
+    .lockup__desc {
+      font-size: 0.8125rem;
+    }
+
+    .site-nav {
+      margin-left: 0;
+    }
+
+    .site-nav__book {
+      display: inline-flex;
+      margin-left: 12px;
+    }
+  }
+</style>

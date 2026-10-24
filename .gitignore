@@ -1,0 +1,25 @@
+# build
+dist/
+.astro/
+
+# dependencies
+node_modules/
+
+# env (valores reais só no painel do host)
+.env
+.env.*
+!.env.example
+
+# test output
+test-results/
+playwright-report/
+reports/lighthouse/*.html
+
+# os / editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+
+# cloudflare
+.wrangler/

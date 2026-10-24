@@ -1,0 +1,273 @@
+/* Tokens: design-system/chriskendra/MASTER.md */
+:root {
+  --cocoa: #3b2117;
+  --gold: #f2c230;
+  --gold-hover: #ffd451;
+  --magenta: #9e1677;
+  --magenta-hover: #7e0f5e;
+  --blush: #fbe6ef;
+  --paper: #ffffff;
+  --milk: #6b4a3c;
+
+  --parting: 3px;
+  --gutter: 16px;
+  --max: 1160px;
+  --bar-height: 0px;
+
+  --text-sm: 0.9375rem;
+  --text: 1.0625rem;
+  --h1: clamp(2.25rem, 1.4rem + 4.2vw, 4rem);
+  --h2: clamp(1.75rem, 1.4rem + 1.8vw, 2.5rem);
+
+  color-scheme: light;
+}
+
+/* Room for the fixed WhatsApp/Call bar (components/ActionBar.astro), mobile only. */
+@media (max-width: 899.98px) {
+  :root {
+    --bar-height: calc(75px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+@media (min-width: 600px) {
+  :root {
+    --gutter: 24px;
+  }
+}
+
+@media (min-width: 900px) {
+  :root {
+    --gutter: 32px;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgb(158 22 119 / 0.18);
+  scroll-padding-top: 16px;
+  /* Keeps keyboard focus clear of the fixed WhatsApp/Call bar on phones. */
+  scroll-padding-bottom: calc(var(--bar-height) + 16px);
+}
+
+a,
+summary {
+  touch-action: manipulation;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--blush);
+  color: var(--cocoa);
+  font-family: var(--font-body);
+  font-size: var(--text);
+  line-height: 1.5;
+  /* Young Serif defaults to old-style figures; prices and addresses read better lining. */
+  font-variant-numeric: lining-nums;
+  padding-bottom: var(--bar-height);
+}
+
+/* Component display rules must never override the hidden attribute. */
+[hidden] {
+  display: none !important;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+figure {
+  margin: 0;
+}
+
+h1,
+h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--h1);
+}
+
+h2 {
+  font-size: var(--h2);
+}
+
+h3 {
+  font-size: 1.1875rem;
+  line-height: 1.3;
+  text-wrap: balance;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--magenta);
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: var(--magenta-hover);
+}
+
+:focus-visible {
+  outline: 3px solid var(--magenta);
+  outline-offset: 3px;
+}
+
+.on-dark {
+  background: var(--cocoa);
+  color: var(--paper);
+}
+
+.on-dark a:not(.btn) {
+  color: var(--blush);
+}
+
+.on-dark a:not(.btn):hover {
+  color: var(--paper);
+}
+
+.on-dark :focus-visible {
+  outline-color: var(--gold);
+}
+
+.wrap {
+  width: 100%;
+  max-width: calc(var(--max) + 2 * var(--gutter));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: 56px;
+}
+
+@media (min-width: 900px) {
+  .section {
+    padding-block: 88px;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Buttons: pill shape from the flyer's "WE SPECIALISE IN" band. No transitions. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  min-height: 52px;
+  padding: 0.5em 1.4em;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: var(--text);
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn svg {
+  flex: none;
+  width: 1.3em;
+  height: 1.3em;
+}
+
+.btn--gold {
+  background: var(--gold);
+  color: var(--cocoa);
+}
+
+.btn--gold:hover {
+  background: var(--gold-hover);
+  color: var(--cocoa);
+}
+
+.btn--magenta {
+  background: var(--magenta);
+  color: var(--paper);
+}
+
+.btn--magenta:hover {
+  background: var(--magenta-hover);
+  color: var(--paper);
+}
+
+.btn--cocoa {
+  background: var(--cocoa);
+  color: var(--paper);
+}
+
+.btn--cocoa:hover {
+  background: #23130d;
+  color: var(--paper);
+}
+
+.btn--line-light {
+  border-color: var(--blush);
+  color: var(--paper);
+}
+
+.btn--line-light:hover {
+  background: var(--paper);
+  color: var(--cocoa);
+}
+
+.btn--line-magenta {
+  border-color: var(--magenta);
+  color: var(--magenta);
+}
+
+.btn--line-magenta:hover {
+  background: var(--magenta);
+  color: var(--paper);
+}
+
+/* The parting grid: photos separated by thin blush lines, like box parts. */
+.parting-grid {
+  display: grid;
+  gap: var(--parting);
+  background: var(--blush);
+}
+
+.parting-grid > * {
+  background: var(--cocoa);
+  min-width: 0;
+}
+
+.parting-grid picture {
+  display: contents;
+}
+
+.parting-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

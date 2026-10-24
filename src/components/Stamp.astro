@@ -1,0 +1,80 @@
+---
+// The flyer's "A try will convince you" seal: a serrated gold circle.
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+
+const teeth = 32;
+const points = Array.from({ length: teeth * 2 }, (_, i) => {
+  const r = i % 2 === 0 ? 50 : 46;
+  const a = (Math.PI * i) / teeth;
+  return `${(50 + r * Math.sin(a)).toFixed(2)},${(50 - r * Math.cos(a)).toFixed(2)}`;
+}).join(" ");
+---
+
+<div class="stamp">
+  <svg class="stamp__seal" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+    <polygon points={points} fill="currentColor"></polygon>
+    <circle cx="50" cy="50" r="39" fill="none" stroke="var(--cocoa)" stroke-width="1.2"></circle>
+  </svg>
+  <p class="stamp__text">{text}</p>
+</div>
+
+<style>
+  .stamp {
+    position: relative;
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 112px;
+    aspect-ratio: 1;
+    color: var(--gold);
+    transform: rotate(-8deg);
+  }
+
+  .stamp__seal {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .stamp__text {
+    position: relative;
+    max-width: 70%;
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    line-height: 1.05;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--cocoa);
+  }
+
+  /* The page's single moment of motion: the seal presses on once as it scrolls into view. */
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .stamp {
+        animation: stamp-press linear both;
+        animation-timeline: view();
+        animation-range: entry 10% entry 90%;
+      }
+    }
+  }
+
+  @keyframes stamp-press {
+    from {
+      opacity: 0;
+      transform: rotate(-8deg) scale(1.35);
+    }
+    60% {
+      opacity: 1;
+      transform: rotate(-8deg) scale(0.94);
+    }
+    to {
+      opacity: 1;
+      transform: rotate(-8deg) scale(1);
+    }
+  }
+</style>

@@ -1,0 +1,180 @@
+---
+import { formatRange, type DayHours } from "../lib/hours";
+import { business, directionsUrl, ui } from "../lib/site";
+import Icon from "./Icon.astro";
+
+const week: DayHours[] = business.hours.map((d) =>
+  "closed" in d ? { day: d.day } : { day: d.day, open: d.open, close: d.close },
+);
+const { street, locality, postcode } = business.address;
+---
+
+<section id="visit" class="section visit" aria-labelledby="visit-title">
+  <div class="wrap visit__inner">
+    <div class="visit__where">
+      <h2 id="visit-title">{ui.visitTitle}</h2>
+      <p class="visit__address">
+        {street}
+        <br />
+        {locality}
+        {postcode}
+      </p>
+      <a class="btn btn--line-magenta" href={directionsUrl}>
+        <Icon name="pin" />
+        {ui.directionsButton}
+      </a>
+    </div>
+
+    <div class="visit__hours">
+      <h3 id="hours-title">{ui.hoursTitle}</h3>
+      <!-- Filled in by the script below; without JS the full table still shows. -->
+      <p class="status" data-open-status hidden></p>
+      <table class="hours" aria-labelledby="hours-title" data-hours={JSON.stringify(week)}>
+        <tbody>
+          {week.map((d) => (
+            <tr>
+              <th scope="row">
+                {d.day}
+                <span class="hours__today" hidden>
+                  {ui.todayLabel}
+                </span>
+              </th>
+              <td>{formatRange(d)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { describeStatus, type DayHours } from "../lib/hours";
+
+  const table = document.querySelector<HTMLTableElement>("table[data-hours]");
+  const status = document.querySelector<HTMLElement>("[data-open-status]");
+
+  if (table && status) {
+    const week = JSON.parse(table.dataset["hours"] ?? "[]") as DayHours[];
+    const parts = new Intl.DateTimeFormat("en-GB", {
+      timeZone: "Europe/London",
+      weekday: "long",
+      hour: "numeric",
+      minute: "numeric",
+      hourCycle: "h23",
+    }).formatToParts(new Date());
+    const part = (type: string) => parts.find((p) => p.type === type)?.value ?? "";
+    const weekday = week.findIndex((d) => d.day === part("weekday"));
+
+    if (weekday >= 0) {
+      const minute = Number(part("hour")) * 60 + Number(part("minute"));
+      const { open, text } = describeStatus(week, weekday, minute);
+      status.textContent = text;
+      status.classList.add(open ? "is-open" : "is-closed");
+      status.hidden = false;
+
+      const row = table.tBodies[0]?.rows[weekday];
+      row?.classList.add("is-today");
+      row?.setAttribute("aria-current", "date");
+      row?.querySelector<HTMLElement>(".hours__today")?.removeAttribute("hidden");
+    }
+  }
+</script>
+
+<style>
+  .visit {
+    border-top: 1px solid rgb(59 33 23 / 0.25);
+  }
+
+  .visit__inner {
+    display: grid;
+    gap: 40px;
+  }
+
+  .visit__where {
+    display: grid;
+    gap: 20px;
+    justify-items: start;
+    align-content: start;
+  }
+
+  .visit__address {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    line-height: 1.25;
+  }
+
+  .visit__hours h3 {
+    font-family: var(--font-display);
+    font-size: 1.375rem;
+    font-weight: 400;
+    margin-bottom: 12px;
+  }
+
+  .status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+
+  .status::before {
+    content: "";
+    flex: none;
+    width: 12px;
+    height: 12px;
+    border: 2px solid var(--magenta);
+    border-radius: 50%;
+  }
+
+  .status.is-open::before {
+    background: var(--magenta);
+  }
+
+  .hours {
+    width: 100%;
+    max-width: 26rem;
+    border-collapse: collapse;
+  }
+
+  .hours th,
+  .hours td {
+    padding: 10px 12px;
+    border-bottom: 1px solid rgb(59 33 23 / 0.18);
+    text-align: left;
+    font-weight: 400;
+  }
+
+  .hours td {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  .hours tr.is-today th,
+  .hours tr.is-today td {
+    font-weight: 700;
+    background: var(--paper);
+  }
+
+  .hours tr.is-today th {
+    box-shadow: inset 4px 0 0 var(--magenta);
+  }
+
+  .hours__today {
+    margin-left: 8px;
+    padding: 1px 8px;
+    border-radius: 999px;
+    background: var(--magenta);
+    color: var(--paper);
+    font-size: 0.8125rem;
+  }
+
+  @media (min-width: 900px) {
+    .visit__inner {
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      gap: 56px;
+    }
+  }
+</style>

@@ -1,0 +1,234 @@
+---
+import {
+  copy,
+  formatPrice,
+  groupSummary,
+  priceQuestionUrl,
+  serviceLabel,
+  site,
+  ui,
+} from "../lib/site";
+import Stamp from "./Stamp.astro";
+
+const groups = site.priceGroups;
+const half = Math.ceil(groups.length / 2);
+const columns = [groups.slice(0, half), groups.slice(half)];
+---
+
+<section id="prices" class="section prices" aria-labelledby="prices-title">
+  <div class="wrap">
+    <div class="prices__head">
+      <h2 id="prices-title">{ui.pricesTitle}</h2>
+      <div class="offer">
+        <Stamp text={copy.slogan} />
+        <div class="offer__body">
+          <p class="offer__title">{site.offer.title}</p>
+          <p>{site.offer.text}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sheet">
+      {columns.map((column, c) => (
+        <div class="sheet__col">
+          {column.map((group, g) => (
+            <details class="group" open={c === 0 && g === 0}>
+              <summary>
+                <span class="group__title">{group.title}</span>
+                <span class="group__meta">{groupSummary(group)}</span>
+                <span class="group__toggle" aria-hidden="true" />
+              </summary>
+              <ul class="items">
+                {group.items.map((item) => (
+                  <li class="item">
+                    <span class="item__name">{item.name}</span>
+                    <span class="item__dots" aria-hidden="true" />
+                    {item.price === null ? (
+                      <a class="item__ask" href={priceQuestionUrl(group, item)}>
+                        {ui.askForPrice}
+                        <span class="sr-only"> for {serviceLabel(group, item)}</span>
+                      </a>
+                    ) : (
+                      <span class="item__price">{formatPrice(item.price)}</span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </details>
+          ))}
+        </div>
+      ))}
+    </div>
+
+    <p class="prices__note">{site.priceNote}</p>
+  </div>
+</section>
+
+<style>
+  .prices__head {
+    display: grid;
+    gap: 20px;
+    margin-bottom: 28px;
+  }
+
+  .offer {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .offer__title {
+    font-family: var(--font-display);
+    font-size: 1.375rem;
+    line-height: 1.2;
+    color: var(--magenta);
+  }
+
+  /* Paper sheet, like the salon's printed list. */
+  .sheet {
+    background: var(--paper);
+    border: 1px solid rgb(59 33 23 / 0.18);
+  }
+
+  .group + .group,
+  .sheet__col + .sheet__col {
+    border-top: 1px solid rgb(59 33 23 / 0.18);
+  }
+
+  summary {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    column-gap: 16px;
+    min-height: 64px;
+    padding: 14px 16px;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary:hover .group__title {
+    color: var(--magenta);
+  }
+
+  .group__title {
+    font-family: var(--font-display);
+    font-size: 1.3125rem;
+    line-height: 1.2;
+  }
+
+  .group__meta {
+    grid-row: 2;
+    font-size: var(--text-sm);
+    color: var(--milk);
+  }
+
+  .group__toggle {
+    grid-row: 1 / 3;
+    grid-column: 2;
+    position: relative;
+    width: 32px;
+    height: 32px;
+    border: 2px solid var(--magenta);
+    border-radius: 50%;
+  }
+
+  .group__toggle::before,
+  .group__toggle::after {
+    content: "";
+    position: absolute;
+    inset: 50% auto auto 50%;
+    width: 14px;
+    height: 2px;
+    margin: -1px 0 0 -7px;
+    background: var(--magenta);
+  }
+
+  .group__toggle::after {
+    transform: rotate(90deg);
+  }
+
+  details[open] .group__toggle::after {
+    display: none;
+  }
+
+  .items {
+    padding: 0 16px 16px;
+    list-style: none;
+  }
+
+  .item {
+    display: grid;
+    grid-template-columns: minmax(0, auto) minmax(16px, 1fr) auto;
+    align-items: end;
+    column-gap: 6px;
+    padding-block: 9px;
+  }
+
+  .item__dots {
+    margin-bottom: 0.4em;
+    border-bottom: 2px dotted rgb(59 33 23 / 0.45);
+  }
+
+  /* Serif prices, as on the flyer. */
+  .item__price {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    line-height: 1.3;
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+
+  .item__ask {
+    display: inline-flex;
+    align-items: flex-end;
+    min-height: 44px;
+    margin-block: -10px -9px;
+    padding-bottom: 9px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .prices__note {
+    max-width: 40em;
+    margin-top: 20px;
+    color: var(--milk);
+  }
+
+  @media (min-width: 900px) {
+    .prices__head {
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: end;
+    }
+
+    .offer__body {
+      max-width: 22em;
+    }
+
+    /* Two pages side by side, like the two-page printed list. */
+    .sheet {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      align-items: start;
+      gap: 24px;
+      background: none;
+      border: 0;
+    }
+
+    .sheet__col {
+      background: var(--paper);
+      border: 1px solid rgb(59 33 23 / 0.18);
+    }
+
+    .sheet__col + .sheet__col {
+      border-top: 1px solid rgb(59 33 23 / 0.18);
+    }
+
+    summary,
+    .items {
+      padding-inline: 24px;
+    }
+  }
+</style>

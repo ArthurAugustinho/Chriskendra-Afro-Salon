@@ -1,0 +1,47 @@
+---
+import { addressLine, business, phoneText, telUrl } from "../lib/site";
+---
+
+<footer class="site-footer on-dark">
+  <address class="wrap">
+    <span class="site-footer__name" translate="no">
+      {business.nameOnGoogle}
+    </span>
+    <span>{addressLine}</span>
+    <a href={telUrl}>{phoneText}</a>
+  </address>
+</footer>
+
+<style>
+  .site-footer {
+    padding-block: 40px;
+  }
+
+  address {
+    display: grid;
+    gap: 4px;
+    justify-items: start;
+    font-style: normal;
+  }
+
+  .site-footer__name {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+  }
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-weight: 700;
+  }
+
+  @media (min-width: 900px) {
+    address {
+      grid-auto-flow: column;
+      justify-content: start;
+      align-items: center;
+      gap: 32px;
+    }
+  }
+</style>

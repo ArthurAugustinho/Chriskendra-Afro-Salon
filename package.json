@@ -1,0 +1,40 @@
+{
+  "name": "chriskendra-site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.23.4"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "check": "astro check",
+    "build": "astro check && astro build",
+    "preview": "astro preview --port 4321",
+    "lint": "eslint . && prettier --check .",
+    "format": "prettier --write .",
+    "test": "playwright test",
+    "screenshots": "playwright test tests/screenshots.spec.ts",
+    "lighthouse": "node scripts/lighthouse.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/atkinson-hyperlegible-next": "5.3.0",
+    "@fontsource/young-serif": "5.3.0",
+    "astro": "7.4.2"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.12",
+    "@axe-core/playwright": "4.14.0",
+    "@eslint/js": "10.0.1",
+    "@playwright/test": "1.64.1",
+    "eslint": "10.13.0",
+    "eslint-plugin-astro": "3.2.1",
+    "eslint-plugin-jsx-a11y-x": "0.2.0",
+    "globals": "17.13.0",
+    "lighthouse": "13.5.0",
+    "prettier": "3.9.10",
+    "prettier-plugin-astro": "1.1.2",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.72.0"
+  }
+}

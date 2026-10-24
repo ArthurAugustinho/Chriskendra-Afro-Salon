@@ -1,0 +1,39 @@
+---
+import { bookingUrl, business, telUrl, ui } from "../lib/site";
+import Icon from "./Icon.astro";
+---
+
+<div class="action-bar on-dark">
+  <a class="btn btn--gold" href={bookingUrl}>
+    <Icon name="whatsapp" />
+    {ui.bookButton}
+  </a>
+  <a class="btn btn--line-light" href={telUrl}>
+    <Icon name="phone" />
+    {ui.callButton}
+    <span class="sr-only">{business.phoneDisplay}</span>
+  </a>
+</div>
+
+<style>
+  .action-bar {
+    position: fixed;
+    inset: auto 0 0;
+    z-index: 5;
+    display: grid;
+    grid-template-columns: 1.7fr 1fr;
+    gap: 8px;
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px));
+    border-top: var(--parting) solid var(--blush);
+  }
+
+  .action-bar .btn {
+    padding-inline: 12px;
+  }
+
+  @media (min-width: 900px) {
+    .action-bar {
+      display: none;
+    }
+  }
+</style>

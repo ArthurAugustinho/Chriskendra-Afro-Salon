@@ -1,0 +1,4 @@
+# Draft preview: pages carry "noindex, nofollow" (meta and X-Robots-Tag).
+# Crawling stays allowed so search engines can see that instruction.
+User-agent: *
+Allow: /
