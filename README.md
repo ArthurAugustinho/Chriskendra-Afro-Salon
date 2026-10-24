@@ -65,6 +65,10 @@ node -e "require('sharp')('src/content/photos/ARQUIVO.jpg').metadata().then(m =>
 
 As 3 fotos do topo são escolhidas em `src/components/Hero.astro`. A primeira é um recorte da foto tirada no salão, gerado por `node scripts/crop-hero.mjs`; rode de novo se trocar essa foto.
 
+### Logo
+
+O arquivo original da dona está em `briefing/brand/logo-mark-redrawn.png`. A marca do topo (`src/assets/brand/logo-mark.png`), o `public/favicon.png` e o `public/apple-touch-icon.png` são gerados dele por `node scripts/brand-assets.mjs`. O texto do logo ("ChrisKendra" e "Afro Caribbean Salon") é composto em Young Serif a partir de `business.wordmark` e `business.descriptor`.
+
 ### Horários, contato e textos
 
 - Horários: `business.hours` (formato 24 h, `"09:30"`). Dia fechado: `{ "day": "Sunday", "closed": true }`. A tabela, o status "Open now" e o JSON-LD usam a mesma lista.

@@ -224,3 +224,4 @@ Conferido e ausente: creme + terracota, quase-preto + neon, gradientes, blobs, s
 3. **Hero no celular:** as fotos vêm antes dos botões para entrar na primeira tela; a barra fixa já mostra WhatsApp e Ligar. A ordem no DOM não muda (foco por teclado intacto).
 4. **Recorte da foto do salão** no hero (`scripts/crop-hero.mjs`): o original mostra mais cadeira e chão que cabelo.
 5. **Folha de preços no desktop em duas páginas** lado a lado, cada uma com a altura do próprio conteúdo, como a lista impressa de 2 páginas; evita um vazio branco na coluna da direita.
+6. **Logo original** (recebido em 2026-10-24) no lugar da marca redesenhada: PNG transparente servido em AVIF/WebP; favicon e ícone gerados dele (`scripts/brand-assets.mjs`).

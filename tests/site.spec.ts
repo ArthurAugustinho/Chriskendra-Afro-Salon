@@ -164,8 +164,10 @@ test("images: AVIF/WebP, dimensions, lazy below the fold, hero first", async ({ 
     expect(img.types).toEqual(["image/avif", "image/webp"]);
     if (img.inGallery) expect(img.loading).toBe("lazy");
   }
-  expect(imgs[0]?.priority).toBe("high");
-  expect(imgs[0]?.loading).toBe("eager");
+  const hero = page.locator(".hero img").first();
+  await expect(hero).toHaveAttribute("fetchpriority", "high");
+  await expect(hero).toHaveAttribute("loading", "eager");
+  await expect(page.locator('img[fetchpriority="high"]')).toHaveCount(1);
 });
 
 test("reviews: themes only, no quotes or names", async ({ page }) => {

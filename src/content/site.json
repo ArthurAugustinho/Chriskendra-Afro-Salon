@@ -62,7 +62,7 @@
         "closed": true
       }
     ],
-    "hoursNote": "From the Google listing. The owner's flyer says Mon-Sat 09:00-18:00. Pending confirmation; show the Google hours in the draft.",
+    "hoursNote": "Google hours confirmed as correct by the owner on 2026-10-24.",
     "siteLanguage": "en-GB"
   },
   "suggestedCopy": {
@@ -124,7 +124,7 @@
         },
         {
           "name": "2 feed-in braids",
-          "price": null
+          "price": 45
         },
         {
           "name": "Single plaits (own hair)",
@@ -247,7 +247,7 @@
           "price": 25
         },
         {
-          "name": "Protein treatment",
+          "name": "Protein/reconstructive treatment",
           "price": 30
         },
         {
@@ -269,7 +269,7 @@
         },
         {
           "name": "Feed-in braids",
-          "price": null
+          "price": 50
         },
         {
           "name": "2 feed-in braids",
@@ -279,61 +279,61 @@
     }
   ],
   "priceSourceNotes": [
-    "Prices from the salon's printed price list (photos in reference/). 'price': null means unreadable or not listed: show 'Ask for a price' linking to WhatsApp.",
-    "Lace wig installation (£30) is only on the flyer, not on the printed list. Pending confirmation.",
-    "Printed list also reads 'Gel twists £15' on page 2, which conflicts with 'Gel twists (half head) £45' on page 1; full head shown as 'Ask for a price'."
+    "Owner confirmed on 2026-10-24 that the printed price list (reference/) is current.",
+    "'price': null means not listed: show 'Ask for a price' linking to WhatsApp. Still null: adult feed-in braids (small).",
+    "Open questions: knotless braids (medium/large) reads £100 on the printed list but £10 in the owner's message; \"Gel twists £15\" on page 2 vs \"Gel twists (half head) £45\" on page 1; lace wig installation and loc retwist appear only on the flyer."
   ],
   "photos": [
     {
       "file": "photos/cornrow-updo.jpg",
       "alt": "Cornrow updo with a braided bun",
       "caption": "Cornrow updo with a braided bun",
-      "rights": "to confirm with the owner"
+      "rights": "consent confirmed by the owner (2026-10-24)"
     },
     {
       "file": "photos/boho-knotless-braids.jpg",
       "alt": "Long boho knotless braids with curly ends",
       "caption": "Long boho knotless braids with curly ends",
-      "rights": "to confirm with the owner"
+      "rights": "consent confirmed by the owner (2026-10-24)"
     },
     {
       "file": "photos/straight-back-cornrows.jpg",
       "alt": "Neat straight-back cornrows",
       "caption": "Neat straight-back cornrows",
-      "rights": "to confirm with the owner"
+      "rights": "consent confirmed by the owner (2026-10-24)"
     },
     {
       "file": "photos/two-strand-twists-in-salon.jpg",
       "alt": "Client in the salon chair with two-strand twists",
       "caption": "Two-strand twists",
-      "rights": "confirmed: taken in the salon"
+      "rights": "consent confirmed by the owner (2026-10-24)"
     },
     {
       "file": "photos/triangle-part-knotless-braids.jpg",
       "alt": "Triangle-part knotless braids in a high bun",
       "caption": "Triangle-part knotless braids",
-      "rights": "to confirm with the owner"
+      "rights": "consent confirmed by the owner (2026-10-24)"
     },
     {
       "file": "photos/cornrows-with-ombre-braids.jpg",
       "alt": "Cornrows into long ombré braids",
       "caption": "Cornrows with ombré braids",
-      "rights": "to confirm with the owner"
+      "rights": "consent confirmed by the owner (2026-10-24)"
     },
     {
       "file": "photos/mens-twists.jpg",
       "alt": "Men's twists with triangle parts",
       "caption": "Men's twists",
-      "rights": "to confirm with the owner"
+      "rights": "consent confirmed by the owner (2026-10-24)"
     },
     {
       "file": "photos/mens-box-part-twists.jpg",
       "alt": "Men's box-part twists",
       "caption": "Box-part twists",
-      "rights": "to confirm with the owner"
+      "rights": "consent confirmed by the owner (2026-10-24)"
     }
   ],
-  "photosNote": "Cropped from WhatsApp screenshots, EXIF removed. Two images with other brands' names were excluded on purpose. Only two-strand-twists-in-salon is clearly from the salon; the owner must confirm the rest before launch.",
+  "photosNote": "Cropped from WhatsApp screenshots, EXIF removed. Image consent for all photos confirmed by the owner on 2026-10-24. Only two-strand-twists-in-salon is clearly from the salon; whether the others are the salon's own work is not confirmed, so the gallery is titled \"Styles\".",
   "reviewThemes": [
     {
       "title": "Patient and caring",
@@ -350,7 +350,7 @@
   ],
   "reviewThemesNote": "Paraphrased from the public Google reviews. Do not quote, do not invent names, do not add aggregateRating to JSON-LD.",
   "brand": {
-    "logo": "brand/logo-mark-redrawn.svg (redrawn from a low-resolution flyer; the original file is pending)",
+    "logo": "brand/logo-mark-redrawn.png (owner's original mark, received 2026-10-24; site files generated by scripts/brand-assets.mjs)",
     "logoLockup": "Gold head-and-hair silhouette, 'ChrisKendra' in white serif, 'AFRO CARIBBEAN SALON' in gold capitals, on chocolate brown",
     "colours": {
       "chocolate": "#3B2117",
@@ -362,14 +362,12 @@
   },
   "pending": [
     "Proposal not accepted yet (Playbook phase 0)",
-    "Opening hours: Google vs flyer",
-    "Printed list vs flyer prices; is the printed list current?",
-    "Unreadable prices: feed-in braids (small), 2 feed-in braids, gel twists (full head), children's feed-in braids",
+    "Knotless braids (medium/large): £100 (printed list) or £10 (owner's message)?",
+    "Gel twists £15 (printed list page 2): which service is it?",
+    "Lace wig installation (£30) and loc retwist: only on the flyer; still offered?",
+    "Feed-in braids (small, adult): price not listed",
     "Is braiding hair included in braid prices?",
-    "Lace wig installation still offered?",
-    "Rights to the photos and consent of clients shown",
-    "Original logo file (PNG/SVG/PDF)",
-    "Official name: 'Chriskendra Afro Salon' (Google) or 'ChrisKendra Afro Caribbean Salon' (logo)",
+    "Are the gallery photos the salon's own work? (allows the title \"Our work\")",
     "Owner's name and an 'about' text, if she wants one"
   ]
 }
