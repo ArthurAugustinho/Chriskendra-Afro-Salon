@@ -144,12 +144,12 @@
           "price": 45
         },
         {
-          "name": "Gel twists (half head)",
-          "price": 45
+          "name": "Gel twists",
+          "price": 15
         },
         {
-          "name": "Gel twists (full head)",
-          "price": null
+          "name": "Gel twists (half head)",
+          "price": 45
         },
         {
           "name": "Loc retwist",
@@ -279,9 +279,10 @@
     }
   ],
   "priceSourceNotes": [
-    "Owner confirmed on 2026-10-24 that the printed price list (reference/) is current.",
-    "'price': null means not listed: show 'Ask for a price' linking to WhatsApp. Still null: adult feed-in braids (small).",
-    "Open questions: knotless braids (medium/large) reads £100 on the printed list but £10 in the owner's message; \"Gel twists £15\" on page 2 vs \"Gel twists (half head) £45\" on page 1; lace wig installation and loc retwist appear only on the flyer."
+    "Owner confirmed on 2026-10-24 that the printed price list (reference/) is current. Knotless braids (medium/large) confirmed at £100.",
+    "Both gel twist prices are shown as printed: 'Gel twists' £15 (page 2) and 'Gel twists (half head)' £45 (page 1).",
+    "Lace wig installation (£30) and loc retwist appear only on the flyer; the owner chose to keep both (2026-10-24).",
+    "'price': null means not listed: show 'Ask for a price' linking to WhatsApp. Still null: feed-in braids (small, adult) and loc retwist."
   ],
   "photos": [
     {
@@ -362,9 +363,6 @@
   },
   "pending": [
     "Proposal not accepted yet (Playbook phase 0)",
-    "Knotless braids (medium/large): £100 (printed list) or £10 (owner's message)?",
-    "Gel twists £15 (printed list page 2): which service is it?",
-    "Lace wig installation (£30) and loc retwist: only on the flyer; still offered?",
     "Feed-in braids (small, adult): price not listed",
     "Is braiding hair included in braid prices?",
     "Are the gallery photos the salon's own work? (allows the title \"Our work\")",

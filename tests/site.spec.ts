@@ -51,11 +51,12 @@ test("desktop hides the fixed bar", async ({ page }) => {
   await expect(page.locator(".action-bar")).toBeHidden();
 });
 
-test("no request leaves the site while loading and scrolling", async ({ page }) => {
+test("no request leaves the site while loading and scrolling", async ({ page, baseURL }) => {
+  const siteHost = new URL(baseURL ?? "http://localhost:4321").host;
   const external: string[] = [];
   page.on("request", (req) => {
     const url = new URL(req.url());
-    if (url.protocol !== "data:" && url.host !== "localhost:4321") external.push(req.url());
+    if (url.protocol !== "data:" && url.host !== siteHost) external.push(req.url());
   });
   await page.goto("/");
   await scrollThrough(page);

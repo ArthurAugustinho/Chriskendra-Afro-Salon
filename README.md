@@ -6,17 +6,20 @@ Landing page de uma página para o salão em 195 London Road, Croydon. Objetivo 
 
 Requer Node 22.23+ (testado com Node 24).
 
-| O quê                            | Comando                                                                                  |
-| -------------------------------- | ---------------------------------------------------------------------------------------- |
-| Instalar                         | `npm ci`                                                                                 |
-| Desenvolvimento                  | `npm run dev` (http://localhost:4321)                                                    |
-| Lint e formatação                | `npm run lint`; corrigir: `npm run format`                                               |
-| Build (checa tipos e o conteúdo) | `npm run build` → `dist/`                                                                |
-| Servir o build                   | `npm run preview` (http://localhost:4321)                                                |
-| Testes de aceite (Playwright)    | `npx playwright install chromium` (1ª vez) e `npm test`                                  |
-| Screenshots 360/390/1366         | `npm run screenshots` → `docs/screenshots/`                                              |
-| Lighthouse mobile                | com o preview rodando: `npm run lighthouse` → `reports/lighthouse/`                      |
-| Deploy do preview                | `npx wrangler pages deploy dist --project-name chriskendra-preview` (só com confirmação) |
+| O quê                            | Comando                                                             |
+| -------------------------------- | ------------------------------------------------------------------- |
+| Instalar                         | `npm ci`                                                            |
+| Desenvolvimento                  | `npm run dev` (http://localhost:4321)                               |
+| Lint e formatação                | `npm run lint`; corrigir: `npm run format`                          |
+| Build (checa tipos e o conteúdo) | `npm run build` → `dist/`                                           |
+| Servir o build                   | `npm run preview` (http://localhost:4321)                           |
+| Testes de aceite (Playwright)    | `npx playwright install chromium` (1ª vez) e `npm test`             |
+| Screenshots 360/390/1366         | `npm run screenshots` → `docs/screenshots/`                         |
+| Lighthouse mobile                | com o preview rodando: `npm run lighthouse` → `reports/lighthouse/` |
+| Login no Cloudflare (1ª vez)     | `npx wrangler login`                                                |
+| Criar o projeto (1ª vez)         | `npm run preview:project`                                           |
+| Deploy do preview                | `npm run deploy:preview` (build + publicação; só com confirmação)   |
+| Testes contra o site publicado   | `BASE_URL=https://chriskendra-preview.pages.dev npm test`           |
 
 `npm test` sobe o `npm run preview` sozinho se ele não estiver rodando, mas usa o que estiver em `dist/`: rode `npm run build` antes.
 
